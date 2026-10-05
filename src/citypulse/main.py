@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request, Response
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Gauge, Histogram, generate_latest
 
 from citypulse import __version__
+from citypulse.adaptive.router import router as adaptive_router
 from citypulse.agents.research_router import router as research_router
 from citypulse.agents.router import router as agents_router
 from citypulse.assistant.router import router as assistant_router
@@ -66,6 +67,7 @@ async def collect_http_metrics(request: Request, call_next) -> Response:
 
 
 app.include_router(assistant_router, prefix=settings.api_prefix)
+app.include_router(adaptive_router, prefix=settings.api_prefix)
 app.include_router(agents_router, prefix=settings.api_prefix)
 app.include_router(research_router, prefix=settings.api_prefix)
 app.include_router(mlops_router, prefix=settings.api_prefix)

@@ -15,6 +15,20 @@ Core capabilities:
 - lightweight FastAPI foresight routes under `/api/v1/foresight`
 - CLI entry point via `python -m pipelines.foresight`
 
+## Phase 31: adaptive urban intelligence & closed-loop decision support
+
+Phase 31 adds a closed-loop analytical layer around the existing CityPulse stack. It monitors strategy health, checks assumption drift, identifies meaningful change, evaluates strategy performance, and proposes adaptive alternatives without executing real-world policy changes.
+
+Core capabilities:
+
+- strategy lifecycle management for active, monitoring, review, and reassessment states
+- assumption registry and drift checks using observed-versus-expected comparisons
+- change detection for regime and temporary shifts
+- strategy health aggregation across performance, robustness, and assumption-validity dimensions
+- adaptive monitoring engine that generates review triggers and alternative strategies
+- FastAPI endpoints under `/api/v1/adaptive`
+- CLI entry point via `python -m pipelines.adaptive`
+
 ## Current repository state
 
 The checkout contains a verified foundation for data quality, energy profiling, mobility aggregation, deterministic counterfactual simulation, and transparent multi-objective decision analysis. No real city graph, verified traffic dataset, risk engine, PostGIS database, or trained forecasting artifacts are present, so unsupported results are reported as `NOT AVAILABLE`, `NOT MEASURED`, or `NOT RUN`.
