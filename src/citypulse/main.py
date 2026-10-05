@@ -22,6 +22,7 @@ from citypulse.models.urban_foundation.router import router as urban_foundation_
 from citypulse.network.router import router as network_router
 from citypulse.operations.router import router as operations_router
 from citypulse.policy.router import router as policy_router
+from citypulse.public_services.router import router as public_services_router
 from citypulse.security.router import router as security_router
 from citypulse.streaming.router import router as streaming_router
 from citypulse.transfer.router import router as transfer_router
@@ -90,6 +91,7 @@ app.include_router(knowledge_graph_router, prefix=settings.api_prefix)
 app.include_router(transfer_router, prefix=settings.api_prefix)
 app.include_router(causal_router, prefix=settings.api_prefix)
 app.include_router(policy_router, prefix=settings.api_prefix)
+app.include_router(public_services_router, prefix=settings.api_prefix)
 
 
 @app.get("/health", tags=["system"])
