@@ -29,6 +29,20 @@ Core capabilities:
 - FastAPI endpoints under `/api/v1/adaptive`
 - CLI entry point via `python -m pipelines.adaptive`
 
+## Phase 32: interconnected urban network intelligence
+
+Phase 32 adds a multi-city and regional network intelligence layer that models cities as connected system nodes rather than isolated units. The design supports graph-based dependency analysis, centrality diagnostics, shock simulation, cascade propagation, resilience scoring, policy coordination, and regional foresight while keeping outputs explicitly labeled as modeled or synthetic.
+
+Core capabilities:
+
+- urban network registry and graph construction with edge provenance and uncertainty metadata
+- dependency, centrality, and criticality analysis for intercity systems
+- shock and cascade simulation with bounded propagation depth and scenario labels
+- resilience assessment across connectivity, redundancy, and recovery capacity
+- multi-city policy coordination and trade-off analysis with explicit local/regional distinction
+- FastAPI endpoints under `/api/v1/networks`
+- CLI entry point via `python -m pipelines.network_intelligence`
+
 ## Current repository state
 
 The checkout contains a verified foundation for data quality, energy profiling, mobility aggregation, deterministic counterfactual simulation, and transparent multi-objective decision analysis. No real city graph, verified traffic dataset, risk engine, PostGIS database, or trained forecasting artifacts are present, so unsupported results are reported as `NOT AVAILABLE`, `NOT MEASURED`, or `NOT RUN`.

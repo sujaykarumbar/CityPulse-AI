@@ -17,6 +17,7 @@ from citypulse.governance.router import router as governance_router
 from citypulse.knowledge_graph.router import router as knowledge_graph_router
 from citypulse.mlops.router import router as mlops_router
 from citypulse.models.urban_foundation.router import router as urban_foundation_router
+from citypulse.network.router import router as network_router
 from citypulse.operations.router import router as operations_router
 from citypulse.policy.router import router as policy_router
 from citypulse.security.router import router as security_router
@@ -72,6 +73,7 @@ app.include_router(agents_router, prefix=settings.api_prefix)
 app.include_router(research_router, prefix=settings.api_prefix)
 app.include_router(mlops_router, prefix=settings.api_prefix)
 app.include_router(urban_foundation_router, prefix=settings.api_prefix)
+app.include_router(network_router, prefix=settings.api_prefix)
 app.include_router(streaming_router, prefix=settings.api_prefix)
 app.include_router(validation_router, prefix=settings.api_prefix)
 app.include_router(evaluation_router, prefix=settings.api_prefix)
