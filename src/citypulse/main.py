@@ -10,6 +10,7 @@ from citypulse.agents.router import router as agents_router
 from citypulse.assistant.router import router as assistant_router
 from citypulse.causal.router import router as causal_router
 from citypulse.config import get_settings
+from citypulse.economic.router import router as economic_router
 from citypulse.evaluation.router import router as evaluation_router
 from citypulse.foresight.router import router as foresight_router
 from citypulse.global_city.router import router as global_city_router
@@ -71,6 +72,7 @@ app.include_router(assistant_router, prefix=settings.api_prefix)
 app.include_router(adaptive_router, prefix=settings.api_prefix)
 app.include_router(agents_router, prefix=settings.api_prefix)
 app.include_router(research_router, prefix=settings.api_prefix)
+app.include_router(economic_router, prefix=settings.api_prefix)
 app.include_router(mlops_router, prefix=settings.api_prefix)
 app.include_router(urban_foundation_router, prefix=settings.api_prefix)
 app.include_router(network_router, prefix=settings.api_prefix)

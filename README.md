@@ -43,6 +43,19 @@ Core capabilities:
 - FastAPI endpoints under `/api/v1/networks`
 - CLI entry point via `python -m pipelines.network_intelligence`
 
+## Phase 33: urban economic, supply-chain & resource flow digital twin
+
+Phase 33 adds an economic intelligence layer to CITYPULSE for city-level economic structure, supply-chain dependency, market/resource-flow modeling, and simulated economic shocks. All outputs remain evidence-first: they are explicitly labeled as model-derived or scenario-based and never treated as observed economic truth without supporting data.
+
+Core capabilities:
+
+- economic observation contracts and normalization helpers
+- city economic profiles and sector specialization analysis
+- supply-chain graph dependencies and bottleneck summaries
+- economic shock simulation and resilience reporting
+- FastAPI routes under `/api/v1/economy`
+- compatibility with the existing network, causal, behavior, and resilience layers
+
 ## Current repository state
 
 The checkout contains a verified foundation for data quality, energy profiling, mobility aggregation, deterministic counterfactual simulation, and transparent multi-objective decision analysis. No real city graph, verified traffic dataset, risk engine, PostGIS database, or trained forecasting artifacts are present, so unsupported results are reported as `NOT AVAILABLE`, `NOT MEASURED`, or `NOT RUN`.
