@@ -1,0 +1,19 @@
+mlops:
+  registry_path: artifacts/mlops
+  tracking_provider: local_json
+  monitoring_enabled: true
+  drift_enabled: true
+  retraining_enabled: true
+  require_validation_for_promotion: true
+  require_explicit_approval: true
+
+drift:
+  method: PSI
+  thresholds: {}
+
+validation:
+  gates: {}
+
+retraining:
+  enabled: true
+  automatic_promotion: false

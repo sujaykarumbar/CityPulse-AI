@@ -1,0 +1,18 @@
+data:
+  input_dir: data/processed/mobility
+  timestamp_column: timestamp
+  frequency: h
+  origin_column: null
+  destination_column: null
+  demand_column: null
+
+forecast:
+  horizons: []
+  seasonal_lag: 24
+
+anomaly:
+  window: 24
+  zscore_threshold: 3.0
+
+privacy:
+  aggregate_flows: true

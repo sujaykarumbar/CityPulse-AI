@@ -1,0 +1,10 @@
+simulation:
+  default_seed: 42
+  validation_strict: true
+  max_changes: 20
+uncertainty:
+  enabled: false
+  status_when_disabled: UNCERTAINTY_NOT_ESTIMATED
+traffic:
+  method: graph_approximation
+  capacity_model: CAPACITY_NOT_AVAILABLE

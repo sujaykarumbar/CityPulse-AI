@@ -1,0 +1,14 @@
+environment: development
+broker:
+  provider: local_file_compatibility
+  external_service_required: false
+state_store:
+  provider: in_memory_development
+  durable_history: broker_log
+api:
+  replicas: 1
+websocket:
+  enabled: false
+monitoring:
+  prometheus_enabled: false
+  grafana_enabled: false

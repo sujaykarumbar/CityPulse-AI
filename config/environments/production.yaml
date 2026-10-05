@@ -1,0 +1,4 @@
+environment: production
+log_level: WARNING
+rate_limit: 60
+production_required: true

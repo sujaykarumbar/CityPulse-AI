@@ -1,0 +1,20 @@
+# Phase 8 defaults. These values are starting points, not measured optima.
+data:
+  input_dir: data/processed/energy
+  timestamp_column: timestamp
+  target: null
+  entity_column: null
+  resample_frequency: null
+  lags: [1, 2, 3, 6, 12, 24]
+  rolling_windows: [3, 6, 24]
+
+peak_detection:
+  quantile: 0.95
+
+anomaly:
+  rolling_window: 24
+  zscore_threshold: 3.0
+
+forecast:
+  horizons: [1, 6, 12, 24]
+  seasonal_lag: 24

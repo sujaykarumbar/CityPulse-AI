@@ -1,0 +1,1 @@
+"""Observed-versus-simulated validation helpers."""

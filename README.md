@@ -2,6 +2,19 @@
 
 CityPulse is an AI-powered digital twin and urban intelligence platform. It combines real urban data, geospatial processing, forecasting, graph learning, simulation, and explainable decision support.
 
+## Phase 30: urban evolutionary planning & strategic foresight
+
+Phase 30 adds a long-horizon urban evolution layer that models plausible future states, adaptive policy pathways, signposts, scenario generation, and robustness/regret summaries. The implementation remains intentionally synthetic and evidence-first: outcomes are explicitly labeled as `SCENARIO_ESTIMATE`, `MODEL_DERIVED`, or `SYNTHETIC` and are not presented as real-world forecasts.
+
+Core capabilities:
+
+- future scenario generation with configurable horizons and plausible drivers
+- urban evolution simulation under policy assumptions
+- adaptive pathway construction with trigger evaluation
+- robustness and regret analysis for strategy comparison
+- lightweight FastAPI foresight routes under `/api/v1/foresight`
+- CLI entry point via `python -m pipelines.foresight`
+
 ## Current repository state
 
 The checkout contains a verified foundation for data quality, energy profiling, mobility aggregation, deterministic counterfactual simulation, and transparent multi-objective decision analysis. No real city graph, verified traffic dataset, risk engine, PostGIS database, or trained forecasting artifacts are present, so unsupported results are reported as `NOT AVAILABLE`, `NOT MEASURED`, or `NOT RUN`.
@@ -70,6 +83,27 @@ authentication, authorization, audit logging, request IDs, and asynchronous jobs
 not implemented for this router. See
 [docs/validation/validation_architecture.md](docs/validation/validation_architecture.md)
 and [docs/validation/limitations.md](docs/validation/limitations.md).
+
+The assistant and agent surfaces can read the validation status and stored runs. The
+MLOps promotion gate remains separate and is not yet connected to validation-run
+references or robustness outcomes.
+
+## Phase 22: production foundation
+
+This branch adds API/frontend container definitions, a local Compose stack with
+optional database/cache/streaming/monitoring profiles, a CI workflow for tests,
+linting, dependency/secret/image scanning, and SPDX SBOM artifacts. The API exposes
+`/live`, `/ready`, and Prometheus metrics at `/metrics`.
+
+The CI workflow has not run on GitHub, Docker builds and service startup have not
+been tested because the local Docker daemon is unavailable, and no staging or
+production deployment is configured. Kubernetes, Helm, Terraform, workers,
+authentication, backups/restores, incident response automation, and production
+RPO/RTO remain `NOT_IMPLEMENTED` or `NOT_DEFINED`. See
+[docs/production/architecture.md](docs/production/architecture.md),
+[docs/production/cicd.md](docs/production/cicd.md),
+[docs/production/security.md](docs/production/security.md), and
+[docs/production/operations.md](docs/production/operations.md).
 
 ## Current status: Phase 3 foundation
 
@@ -244,3 +278,36 @@ citypulse/
 6. Forecasting, graph learning, energy, mobility, anomaly, risk, simulation, explainability, API, dashboard, MLOps, deployment, and research documentation
 
 Detailed architecture notes are in [docs/architecture.md](docs/architecture.md).
+
+## Phase 27: urban policy experimentation and evidence lab
+
+The policy experimentation layer adds a structured intervention ontology, policy registry, evidence profile, experiment workflow, transferability checks, robustness analysis, and cost/equity reporting. It intentionally separates observation, prediction, simulation, causal inference, and policy recommendation. Every policy result requires explicit evidence, assumptions, limitations, and provenance.
+
+The policy API is available under the service prefix, for example:
+
+```text
+GET /api/v1/policy/policies
+POST /api/v1/policy/policies
+POST /api/v1/policy/experiments
+POST /api/v1/policy/transferability
+POST /api/v1/policy/robustness
+```
+
+When data or causal evidence is missing, the system reports `NOT_AVAILABLE`, `NOT_RUN`, `INSUFFICIENT_DATA`, or `REVIEW_REQUIRED` instead of fabricating a result.
+
+## Phase 26: causal urban intelligence
+
+The causal layer adds a research-grade urban intervention framework that tracks the causal question, treatment, outcome, design, estimand, confounders, DAG, temporal ordering, and diagnostics before a result is reported. It explicitly avoids claiming causality from correlation or predictive signal alone.
+
+Supported patterns include causal question construction, DAG validation, backdoor-style adjustment-set suggestions, treatment/outcome definitions, temporal validation, and difference-in-differences estimation. Results are labeled with evidence status and return `CAUSAL_EFFECT_NOT_IDENTIFIED` or `NOT_IDENTIFIED` when an urban causal claim is not supported by the available data.
+
+The causal API is available under the standard service prefix, e.g.:
+
+```text
+POST /api/v1/causal/questions
+POST /api/v1/causal/dag/validate
+POST /api/v1/causal/estimate
+GET /api/v1/causal/designs
+```
+
+The synthetic benchmark and report scaffolding in `reports/causal/` is used for implementation validation only and does not represent measured real-world causal findings.

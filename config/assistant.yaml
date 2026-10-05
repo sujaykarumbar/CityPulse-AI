@@ -1,0 +1,10 @@
+provider:
+  name: unavailable
+  model: null
+  temperature: 0.0
+  max_tokens: 800
+assistant:
+  max_tool_calls_per_request: 5
+  tool_timeout_seconds: 5
+  citation_mode: evidence_only
+  prompt_version: 0.1.0

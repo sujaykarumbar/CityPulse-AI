@@ -1,0 +1,3 @@
+environment: staging
+log_level: INFO
+rate_limit: 100

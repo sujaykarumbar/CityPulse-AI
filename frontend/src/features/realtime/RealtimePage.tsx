@@ -1,0 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
+import { Activity, Radio, RotateCcw, Waves } from "lucide-react";
+import { api } from "../../lib/api/client";
+import { z } from "zod";
+
+const statusSchema = z.object({ broker: z.string(), connected: z.boolean(), status: z.string(), topics: z.array(z.string()), accepted_events: z.number(), rejected_events: z.number(), dead_letter_events: z.number(), processed_event_ids: z.number(), guarantee: z.string() });
+async function getStreamingStatus() { const response = await api.get("/api/v1/streaming/status"); return statusSchema.parse(response.data); }
+
+export function RealtimePage() {
+  const stream = useQuery({ queryKey: ["streaming-status"], queryFn: getStreamingStatus });
+  const data = stream.data;
+  return <div className="realtime-page"><header className="realtime-header"><div><span className="panel-label">EVENT INFRASTRUCTURE</span><h1>Realtime operations</h1><p>Event ingestion, processing state, and replay controls from the streaming service.</p></div><button className="quiet-button" onClick={() => void stream.refetch()}><RotateCcw size={14} /> Refresh</button></header><section className="realtime-grid"><div className="realtime-hero"><div className="realtime-hero-icon"><Waves size={22} /></div><div><span className="panel-label">BROKER STATUS</span><h2>{data?.status ?? (stream.isError ? "STREAM STATUS UNAVAILABLE" : "Checking stream")}</h2><p>{data?.connected ? "Connected to the configured event broker." : "No live broker is connected in this environment."}</p></div></div><div className="realtime-cards"><div><span>Guarantee</span><strong>{data?.guarantee ?? "Unavailable"}</strong></div><div><span>Accepted events</span><strong>{data ? data.accepted_events : "N/A"}</strong></div><div><span>Dead-letter events</span><strong>{data ? data.dead_letter_events : "N/A"}</strong></div><div><span>Processed IDs</span><strong>{data ? data.processed_event_ids : "N/A"}</strong></div></div><div className="realtime-panel"><div className="panel-heading"><div><span className="panel-label">TOPIC REGISTRY</span><h2>Configured channels</h2></div><Radio size={18} /></div>{data?.topics.length ? <div className="topic-list">{data.topics.map((topic) => <div key={topic}><Activity size={13} />{topic}</div>)}</div> : <div className="realtime-empty">No live topics are connected. Topic definitions are available in configuration only.</div>}</div><div className="realtime-note"><span className="panel-label">DATA STATUS</span><p>Live traffic, energy, mobility, weather, risk, prediction, lag, throughput, and latency values are not fabricated. Connect a verified source before treating events as observed.</p></div></section></div>;
+}

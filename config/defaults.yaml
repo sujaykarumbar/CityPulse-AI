@@ -1,0 +1,19 @@
+environment: development
+log_level: INFO
+api_base_url: http://localhost:8000
+frontend_base_url: http://localhost:5173
+database_url: postgresql://citypulse:citypulse@localhost:5432/citypulse
+redis_url: redis://localhost:6379/0
+kafka_brokers:
+  - localhost:9092
+model_registry_url: http://localhost:5000
+object_storage_url: http://localhost:9000
+jwt_issuer: citypulse-local
+jwt_audience: citypulse-api
+cors_origins:
+  - http://localhost:5173
+rate_limit: 120
+resources:
+  max_simulation_runtime: 180
+  max_parallel_simulations: 2
+  max_agent_tasks: 25

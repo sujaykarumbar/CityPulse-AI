@@ -1,0 +1,6 @@
+# Phase 3 defaults. Change these per dataset temporal resolution.
+lag_windows: [1, 3, 6, 24]
+rolling_windows: [3, 6, 24]
+target_columns: [vehicle_count, average_speed, demand, energy_consumption]
+timestamp_column: timestamp
+correlation_threshold: 0.9

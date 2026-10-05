@@ -1,0 +1,27 @@
+broker:
+  provider: local_file_compatibility
+  connected: false
+  guarantee: at_least_once
+
+topics:
+  prefix: citypulse
+consumer:
+  max_queue_size: 1000
+  group: citypulse-development
+retry:
+  max_attempts: 3
+  backoff_seconds: 1
+
+dead_letter:
+  enabled: true
+
+windows:
+  allowed_lateness_seconds: 60
+  resolutions: [60, 300, 900]
+
+websocket:
+  enabled: false
+  max_connections: 100
+
+monitoring:
+  prometheus_enabled: false

@@ -1,0 +1,143 @@
+.validation-page {
+  min-height: 100vh;
+  padding: 34px clamp(18px, 5vw, 72px);
+  background: radial-gradient(circle at 72% -15%, rgba(57, 111, 110, .18), transparent 35%), var(--bg);
+}
+.validation-header, .validation-overview, .validation-panel, .validation-alert {
+  max-width: 1180px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.validation-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+.validation-header h1 { margin-top: 8px; font-size: 34px; }
+.validation-header p { margin-top: 9px; color: var(--muted); font-size: 13px; }
+.validation-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  color: var(--soft);
+  font: 500 10px 'DM Mono', monospace;
+}
+.validation-status-tag svg { color: var(--cyan); }
+.validation-alert {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(226, 174, 110, .24);
+  color: var(--amber);
+  background: rgba(226, 174, 110, .06);
+  font-size: 12px;
+}
+.validation-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.validation-overview-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 7px 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 11px;
+}
+.validation-overview-item svg { grid-row: span 2; color: var(--mint); }
+.validation-overview-item strong {
+  overflow-wrap: anywhere;
+  color: var(--soft);
+  font: 500 12px 'DM Mono', monospace;
+}
+.validation-panel {
+  margin-top: 14px;
+  padding: 21px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.validation-panel h2 { margin-top: 7px; color: #e1eee9; font-size: 17px; }
+.validation-caption { color: var(--muted); font: 400 10px 'DM Mono', monospace; }
+.scorecard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+.scorecard-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 9px;
+  padding: 13px;
+  border: 1px solid rgba(138, 183, 181, .11);
+  background: rgba(8, 15, 17, .32);
+}
+.scorecard-item span { color: var(--muted); font-size: 10px; text-transform: capitalize; }
+.scorecard-item strong { color: var(--amber); font: 500 10px 'DM Mono', monospace; overflow-wrap: anywhere; }
+.validation-limitation {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 2px solid var(--amber);
+  background: rgba(226, 174, 110, .05);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.validation-limitation strong { color: var(--soft); font-weight: 600; }
+.validation-empty {
+  margin-top: 18px;
+  padding: 25px 16px;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.validation-empty.warning { color: var(--amber); }
+.validation-run-list { display: grid; gap: 10px; margin-top: 18px; }
+.validation-run { min-width: 0; padding: 15px; border: 1px solid var(--line); background: rgba(8, 15, 17, .3); }
+.validation-run-heading, .validation-run-heading > div, .validation-run-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.validation-run-heading > div { align-items: flex-start; flex-direction: column; }
+.validation-run-heading strong { color: #e1eee9; font-size: 13px; }
+.validation-run-heading > div span, .validation-run-meta, .validation-run-empty, .validation-run-limitation {
+  color: var(--muted);
+  font: 400 10px 'DM Mono', monospace;
+}
+.validation-run-heading > div span { overflow-wrap: anywhere; }
+.validation-run-status { color: var(--mint); font: 500 10px 'DM Mono', monospace; text-align: right; }
+.validation-run-meta { justify-content: flex-start; flex-wrap: wrap; margin-top: 12px; }
+.validation-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-top: 15px; }
+.validation-metrics > div { display: flex; flex-direction: column; gap: 6px; padding: 10px; background: rgba(119, 200, 209, .04); }
+.validation-metrics span { color: var(--muted); font-size: 10px; }
+.validation-metrics strong { color: var(--cyan); font: 500 11px 'DM Mono', monospace; overflow-wrap: anywhere; }
+.validation-run-empty { margin-top: 14px; }
+.validation-run-limitation { margin-top: 12px; line-height: 1.6; }
+@media (max-width: 760px) {
+  .validation-header { align-items: flex-start; flex-direction: column; }
+  .validation-overview, .scorecard-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .validation-page { padding: 24px 14px; }
+  .validation-overview, .scorecard-grid { grid-template-columns: 1fr; }
+  .validation-panel { padding: 16px; }
+  .validation-run-meta { align-items: flex-start; flex-direction: column; }
+}

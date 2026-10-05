@@ -1,0 +1,1 @@
+"""Explicitly synthetic test-data generators. Output is never observational city data."""

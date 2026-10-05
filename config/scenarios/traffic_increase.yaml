@@ -1,0 +1,7 @@
+scenario_id: traffic_increase_example
+name: traffic demand increase example
+changes:
+  - type: traffic_demand_change
+    parameters:
+      multiplier: 1.3
+seed: 42

@@ -1,0 +1,21 @@
+decision_problem:
+  problem_id: traffic_mitigation_example
+  objectives:
+    - name: travel_time
+      metric: average_travel_time
+      direction: minimize
+      weight: 0.6
+      source: measured_simulation
+    - name: congestion
+      metric: congestion_index
+      direction: minimize
+      weight: 0.4
+      source: measured_simulation
+  constraints: []
+  candidates:
+    - candidate_id: demand_10
+      scenario:
+        type: traffic_demand_change
+        parameters:
+          multiplier: 0.9
+      metrics: {}
